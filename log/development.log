@@ -445,3 +445,25 @@ Processing by CatsController#index as HTML
 Completed 200 OK in 24ms (Views: 12.5ms | ActiveRecord: 8.6ms | Allocations: 5136)
 
 
+Started GET "/" for ::1 at 2020-03-26 10:52:36 -0700
+  [1m[35m (3.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/heya.world/.rvm/gems/ruby-2.7.0/gems/railties-6.0.2.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/heya.world/.rvm/gems/ruby-2.7.0/gems/railties-6.0.2.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 8.2ms | Allocations: 295)
+Completed 200 OK in 18ms (Views: 11.0ms | ActiveRecord: 0.0ms | Allocations: 1761)
+
+
+Started GET "/" for ::1 at 2020-03-26 10:52:39 -0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/heya.world/.rvm/gems/ruby-2.7.0/gems/railties-6.0.2.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/heya.world/.rvm/gems/ruby-2.7.0/gems/railties-6.0.2.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 6.4ms | Allocations: 179)
+Completed 200 OK in 9ms (Views: 7.3ms | ActiveRecord: 0.0ms | Allocations: 889)
+
+
+Started GET "/" for ::1 at 2020-03-26 10:52:40 -0700
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/heya.world/.rvm/gems/ruby-2.7.0/gems/railties-6.0.2.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/heya.world/.rvm/gems/ruby-2.7.0/gems/railties-6.0.2.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.3ms | Allocations: 8)
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.0ms | Allocations: 412)
+
+

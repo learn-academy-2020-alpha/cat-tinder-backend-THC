@@ -41,5 +41,72 @@ describe "Cats API", type: :request do
     expect(new_cat.name).to eq('Buster')
   end
 
+  it "doesn't create a cat without a name" do
+    cat_params = {
+      cat: {
+        age: 2,
+        enjoys: 'Walks in the park'
+      }
+    }
+    # Send the request to the  server
+    post '/cats', params: cat_params
+    # expect an error if the cat_params does not have a name
+    expect(response.status).to eq 422
+    # Convert the JSON response into a Ruby Hash
+    json = JSON.parse(response.body)
+    # Errors are returned as an array because there could be more than one, if there are more than one validation failures on an attribute.
+    expect(json['name']).to include "can't be blank"
+  end
 
+  it "doesn't create a cat without an age" do
+    cat_params = {
+      cat: {
+        name: 'Helen',
+        hobby: 'Walks in the park'
+      }
+    }
+    # Send the request to the  server
+    post '/cats', params: cat_params
+    # expect an error if the cat_params does not have a name
+    expect(response.status).to eq 422
+    # Convert the JSON response into a Ruby Hash
+    json = JSON.parse(response.body)
+    # Errors are returned as an array because there could be more than one, if there are more than one validation failures on an attribute.
+    expect(json['age']).to include "can't be blank"
+  end
+
+  it "doesn't create a cat without a hobby" do
+    cat_params = {
+      cat: {
+        name: 'Helen',
+        age: 2
+      }
+    }
+    # Send the request to the  server
+    post '/cats', params: cat_params
+    # expect an error if the cat_params does not have a name
+    expect(response.status).to eq 422
+    # Convert the JSON response into a Ruby Hash
+    json = JSON.parse(response.body)
+    # Errors are returned as an array because there could be more than one, if there are more than one validation failures on an attribute.
+    expect(json['hobby']).to include "can't be blank"
+  end
+
+  it "doesn't create a cat without a hobby with at least 10 characters" do
+    cat_params = {
+      cat: {
+        name: 'Helen',
+        age: 2,
+        hobby: 'not much'
+      }
+    }
+    # Send the request to the  server
+    post '/cats', params: cat_params
+    # expect an error if the cat_params does not have a name
+    expect(response.status).to eq 422
+    # Convert the JSON response into a Ruby Hash
+    json = JSON.parse(response.body)
+    # Errors are returned as an array because there could be more than one, if there are more than one validation failures on an attribute.
+    expect(json['hobby']).to include "can't be less than 10 characters"
+  end
 end
