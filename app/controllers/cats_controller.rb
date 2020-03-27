@@ -12,9 +12,15 @@ class CatsController < ApplicationController
            else
              render json: cat.errors, status: :unprocessable_entity
            end
-      end
+    end
+
+    def show
+      cat = Cat.find([params[:id]])
+      render json: cat
+    end
     
     # Handle strong parameters, so we are secure
+    private
     def cat_params
     params.require(:cat).permit(:name, :age, :hobby)
     end
